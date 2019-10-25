@@ -2,8 +2,8 @@ import express from 'express';
 import path from 'path';
 import morgan from 'morgan'; // HTTP REQUEST LOGGER
 import bodyParser from 'body-parser'; // PARSE HTML BODY
-import mongoose from 'mongoose';
-import session from 'express-session';
+import mongoose from 'mongoose'; // mongodb data 모델링 툴. 몽고디비 데이터를 JS객체로 사용할 수 있게 해줌.
+import session from 'express-session'; // express에서 세션을 다룰 때 사용
 import WebpackDevServer from 'webpack-dev-server';
 import webpack from 'webpack';
 
@@ -24,7 +24,8 @@ app.listen(port, () => {
     console.log('Express is listening on port', port);
 });
 
-if(process.env.NODE_ENV == 'development') {
+// npm run development 하면 여기서 development서버를 켜게 된다.
+if(process.env.NODE_ENV == 'development') { 
     console.log('Server is running on development mode');
     const config = require('../webpack.dev.config');
     const compiler = webpack(config);
@@ -51,8 +52,8 @@ app.use(session({
 }));
 
 /* setup routers & static directory */
-import api from './routes';
-app.use('/api', api);
+import api from './routes'; // ./routes 를 api라는 이름으로 지정.
+app.use('/api', api); // '/api'를 받으면 ./routes 안에 있는 라우터를 사용할 수 있게 된다.
 
 /* handle error */
 app.use(function(err, req, res, next) {

@@ -1,5 +1,5 @@
 import express from 'express';
-import Account from '../models/account'
+import Account from '../models/account' //만들어준 모델 가져옴
 
 const router = express.Router();
 
@@ -11,6 +11,7 @@ const router = express.Router();
         2: BAD PASSWORD
         3: USERNAM EXISTS
 */
+
 router.post('/signup', (req, res) => {
     // CHECK USERNAME FORMAT
     let usernameRegex = /^[a-z0-9]+$/;
@@ -28,11 +29,6 @@ router.post('/signup', (req, res) => {
             code: 2
         });
     }
-
-    // let account = new Account({
-    //     username: req.body.username,
-    //     password: req.body.password
-    // });
 
     // CHECK USER EXISTANCE
     Account.findOne({ username: req.body.username }, (err, exists) => {
@@ -63,6 +59,7 @@ router.post('/signup', (req, res) => {
         
     });
 });
+
 /*
     ACCOUNT SIGNIN: POST /api/account/signin
     BODY SAMPLE: { "username": "test", "password": "test" }
@@ -113,6 +110,15 @@ router.post('/signin', (req, res) => {
 
 /*
     GET CURRENT USER INFO GET /api/account/getInfo
+    로그인 데이터를 쿠키에 담고 사용을 하고 있다가,
+    만약에 새로고침을 해서 어플리케이션을 처음부터 다시 렌더링 하게 될 때,
+    지금 갖고 있는 쿠키가 유효한건지 체크를 해야 하기 때문
+*/
+
+/*  router.get은 첫번째 인자로 string, 두번째 인자로 함수를 받는다.
+    여기서 두번째 인자는 req, res를 매개변수로 하는 익명함수가 들어가서
+    실행결과를 리턴해준다. 익명함수는 router.get 내부에서 실행된다.
+    어떻게 실행되는지는 몰라도됨. 이렇게 해주면 됨. 
 */
 router.get('/getinfo', (req, res) => {
     if(typeof req.session.loginInfo === "undefined") {

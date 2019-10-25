@@ -15,6 +15,10 @@ module.exports = {
     ],
 
     resolve: {
+        // root: path.resolve('./src'), // 없어진 문법
+        alias:{
+            // Comp: path.resolve(__dirname, '/src/components/')
+        }, // 경로를 쉽게 import하려면 alias에 등록해주면 된다.
         modules: [
           path.join(__dirname, "src"),
           "node_modules"

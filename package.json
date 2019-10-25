@@ -1,7 +1,7 @@
 {
   "name": "codelab",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "",
   "scripts": {
     "clean": "rm -rf build public/bundle.js",
     "build": "babel server --out-dir build --presets=es2015 && webpack",
