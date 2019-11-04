@@ -93,7 +93,7 @@ class Authentication extends React.Component {
                 <div className="card-content" >
                     <div className="row">
                         {inputBoxes}
-                        <a className="waves-effect btn" onClick={this.handleLogin} >SUBMIT</a>
+                        <a className="waves-effect waves-light btn" onClick={this.handleLogin} >SUBMIT</a>
                     </div>
                 </div>
 
@@ -120,7 +120,7 @@ class Authentication extends React.Component {
         );
         return (
             <div className="container auth">
-                <Link className="logo" to="/">MEMOPAD</Link>
+                <Link className="logo" to="/">OAZ</Link>
                 <div className="card">
                     <div className="header blue white-text center">
                         <div className="card-content">{this.props.mode ? "LOGIN" : "REGISTER"}</div>

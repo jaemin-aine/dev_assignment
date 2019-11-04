@@ -24,13 +24,13 @@ class Header extends React.Component {
 
         return (
             <nav>
-                <div className="nav-wrapper blue darken-1">
+                <div className="nav-wrapper black darken-1">
                     {/* <a className="brand-logo center">MEMOPAD</a> */}
-                    <Link to="/" className="brand-logo center">MEMOPAD</Link>
+                    <Link to="/" className="brand-logo center">OAZ</Link>
 
                     <ul>
                         <li><a><i className="material-icons">search</i></a></li>
-                        <li><i className="material-icons">dropdown</i></li>
+                        {/* <li><i className="material-icons">dropdown</i></li>  드롭다운 메뉴 추가 예정*/}
                     </ul>
 
                     <div className="right">
