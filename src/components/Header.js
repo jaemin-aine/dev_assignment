@@ -30,6 +30,7 @@ class Header extends React.Component {
 
                     <ul>
                         <li><a><i className="material-icons">search</i></a></li>
+                        <li><i className="material-icons">dropdown</i></li>
                     </ul>
 
                     <div className="right">

@@ -41,6 +41,7 @@ body {
   @media screen and (max-width: 480px) {
     .auth .card {
       width: 100%;
+      align-content: space-between;
     }
   
     .logo {
@@ -64,6 +65,8 @@ body {
   
   .auth .btn {
       width: 90%;
+    
+      align-content: space-between;
   }
   
   .auth .footer {

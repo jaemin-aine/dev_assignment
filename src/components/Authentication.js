@@ -89,11 +89,11 @@ class Authentication extends React.Component {
         );
 
         const loginView = (
-            <div>
-                <div className="card-content">
+            <div >
+                <div className="card-content" >
                     <div className="row">
                         {inputBoxes}
-                        <a className="waves-effect waves-light btn" onClick={this.handleLogin}>SUBMIT</a>
+                        <a className="waves-effect btn" onClick={this.handleLogin} >SUBMIT</a>
                     </div>
                 </div>
 
