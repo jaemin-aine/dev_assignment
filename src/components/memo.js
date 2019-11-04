@@ -1,9 +1,9 @@
 import React from 'react';
 import TimeAgo from 'react-timeago';
+import PropTypes from 'prop-types';
 
 class Memo extends React.Component {
     render() {
-
         
         const {data, ownership} = this.props;
 
@@ -24,12 +24,15 @@ class Memo extends React.Component {
         const memoView = (
             <div className="card">
                 <div className="info">
-                    <a className="username">{data.Writer}</a> wrote a log · <TimeAgo date = {data.date.created}/>
+                    <a className="username">{this.props.data.Writer}</a> wrote a log · <TimeAgo date = {this.props.data.date.created}/>
+                    { ownership ? dropDownMenu : undefined }
                     <div className="option-button">
-                        <a className='dropdown-button' id='dropdown-button-${data._id}' data-activates='dropdown-${data._id}'>
+                        <a className='dropdown-button' 
+                            id={`dropdown-button-${data._id}`} 
+                            data-activates={`dropdown-${data._id}`}>
                             <i className="material-icons icon-button">more_vert</i>
                         </a>
-                        <ul id='dropdown-id' className='dropdown-content'>
+                        <ul id={`dropdown-${data._id}`} className='dropdown-content'>
                             <li><a>Edit</a></li>
                             <li><a>Remove</a></li>
                         </ul>
@@ -47,7 +50,7 @@ class Memo extends React.Component {
 
         return (
             <div className="container memo">
-                <memoView/>
+                {memoView}
             </div>
         );
     }
@@ -71,8 +74,8 @@ class Memo extends React.Component {
 }
 
 Memo.propTypes = {
-    data: React.PropTypes.object,
-    ownership: React.PropTypes.bool
+    data: PropTypes.object,
+    ownership: PropTypes.bool
 };
 
 Memo.defaultProps = {

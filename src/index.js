@@ -5,8 +5,8 @@ import ReactDOM from 'react-dom';
 // import { Router, Route} from 'react-router';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import { createBrowserHistory } from 'history'
-import App from 'containers/App';
-import {Home, Login, Register } from 'containers';
+// import App from 'containers/App';
+import {App, Home, Login, Register } from 'containers';
 
 // Redux
 import { Provider } from 'react-redux';
@@ -24,15 +24,12 @@ ReactDOM.render(
         <BrowserRouter>
             <div>
                 {/* some things can be done here */}
-                <Switch>
                     <Route exact path="/" component={App}/>
                     <Route exact path="/" component={Home}/>
                     <Route path="/home" component={Home}/>
                     <Route path="/login" component={Login}/>
                     <Route path="/register" component={Register}/>     
-                </Switch>
             </div>
-
         </BrowserRouter>
     </Provider>, rootElement
 );

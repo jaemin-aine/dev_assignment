@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Write extends React.Component {
     
@@ -22,8 +23,10 @@ class Write extends React.Component {
     handlePost() {
         let contents = this.state.contents;
         
-        this.props.onPost(contents).then(
-            () => {
+        console.log("hi"+contents)
+        this.props.onPost(contents).then((contents) => {
+            // this.props.onPost((contents) => {
+                console.log("inner")
                 this.setState({
                     contents: ""
                 });
@@ -52,11 +55,13 @@ class Write extends React.Component {
 }
 
 Write.propTypes = {
-    onPost: React.PropTypes.func
+    onPost: PropTypes.func,
+    status: PropTypes.object
 };
 
 Write.defaultProps = {
-    onPost: (contents) => { console.error('post function not defined'); }
+    onPost: (contents) => { console.error('post function not defined'); },
+    status: {}
 };
 
 export default Write;
